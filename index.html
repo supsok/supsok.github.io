@@ -1,1117 +1,350 @@
-<html>
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>숲속생활자</title>
-    <link rel="stylesheet" href="./css/rc.css">
-    <link rel="stylesheet" href="./css/rc-add.css">
-    <link rel="stylesheet" href="./css/sys.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="manifest" href="/manifest.json">
-
-    <!-- 시스템 폰트 -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
-    <link rel="shortcut icon" href="./img/favicon.ico">
-
-    <!-- swiper : http://idangero.us/swiper/ -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="supsok / 숲속생활자는 건강한 불편함과 사람 곁의 기술을 지향하는 로컬테크 브랜드입니다."
     />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
-
+    <title>supsok | 숲속생활자</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: "Pretendard Variable";
+        font-style: normal;
+        font-weight: 45 920;
+        font-display: swap;
+        src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              leaf: "#1f5b3b",
+              moss: "#577a4d",
+              field: "#e7f0dd",
+              soil: "#7b5d43",
+              paper: "#fbfaf4",
+            },
+            fontFamily: {
+              sans: [
+                "Pretendard Variable",
+                "-apple-system",
+                "system-ui",
+                "Apple SD Gothic Neo",
+                "Segoe UI",
+                "Roboto",
+                "Helvetica Neue",
+                "Arial",
+                "Noto Sans KR",
+                "sans-serif",
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+                "Segoe UI Symbol",
+              ],
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
-    <div id="page-main" class="page center">
-      <header class="bar bar-nav bar-light bg-white border-bottom-0">
-        <button class="btn btn-primary pull-right px-1">
-          멘토가입
-        </button>
-        <a class="icon bi bi-person pull-right" role="button"></a>
-
-        <h1 class="title title-left px-3" data-location="reload"><span>봉화군</span></h1>
-      </header>
-
-      <div class="bar bar-standard bar-header-secondary bar-light bg-white border-bottom-0" data-role="navbar-search">
-        <input class="form-control bg-faded" type="search" placeholder="어떤 서비스가 필요하세요?">
-      </div>
-      
-
-      <nav class="bar bar-tab bg-faded bg-white shadow">
-        <a class="tab-item active" role="button" data-tab="home" data-title="봉화군" data-icon="house-door">
-          <i class="bi bi-house-door-fill icon" style="font-size: 1.45rem;"></i>
+  <body class="bg-paper text-stone-800 antialiased">
+    <header class="relative overflow-hidden border-b border-emerald-950/10 bg-paper">
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8"
+        aria-label="주요 메뉴"
+      >
+        <a href="#top" class="flex items-center gap-3" aria-label="supsok 홈">
+          <img
+            src="logo/숲속생활자 로고.jpg"
+            alt="숲속생활자 로고"
+            class="h-12 w-12 rounded-2xl border border-emerald-900/10 object-cover"
+          />
+          <span class="text-lg font-semibold tracking-[0.18em] text-leaf">supsok</span>
         </a>
-        <a class="tab-item" role="button" data-tab="chat" data-title="채팅" data-icon="chat">
-          <i class="bi bi-chat icon"  style="font-size: 1.3rem;"></i>
-          <span class="badge badge-pill badge-danger" data-role="total" style="z-index: 9999;top: 0.5rem;">1</span>
-        </a>
-        <a class="tab-item" role="button" data-tab="mento" data-title="멘토찾기" data-icon="people">
-          <i class="bi bi-people icon" style="font-size: 1.6rem;top: -0.01rem"></i>
-        </a>
-        <a class="tab-item" role="button" data-tab="comm" data-title="커뮤니티" data-icon="binoculars">
-          <i class="bi bi-binoculars icon" style="font-size: 1.5rem;"></i>
-        </a>
-        <a class="tab-item" role="button" data-tab="more" data-title="더보기" data-icon="">
-          <i class="bi bi-three-dots icon"></i>
-        </a>
+        <div class="hidden items-center gap-7 text-sm font-medium text-stone-600 sm:flex">
+          <a href="#philosophy" class="hover:text-leaf">철학</a>
+          <a href="#masilcall" class="hover:text-leaf">마실콜</a>
+          <a href="#contact" class="hover:text-leaf">문의</a>
+        </div>
       </nav>
-      
+    </header>
 
-      <div class="content">
-
-        <div id="tab-home" class="tab-content active">
-
-          <div class="content-padded">
-
-            <table class="table table-sm table-bordered text-xs-center ss_map">
-              <tr>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="밭장만">
-                    <img src="./img/icon_01.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">밭장만</small>
-                  </a>
-                </td>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="밭정리">
-                    <img src="./img/icon_02.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">밭정리</small>
-                  </a>
-                </td>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="관수설비">
-                    <img src="./img/icon_03.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">관수설비</small>
-                  </a>
-                </td>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="배수로">
-                    <img src="./img/icon_04.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">배수로</small>
-                  </a>
-                </td>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="병해충">
-                    <img src="./img/icon_05.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">병해충</small>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="관수">
-                    <img src="./img/icon_06.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">관수</small>
-                  </a>
-                </td>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="파종">
-                    <img src="./img/icon_07.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">파종</small>
-                  </a>
-                </td>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="수확">
-                    <img src="./img/icon_08.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">수확</small>
-                  </a>
-                </td>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="제초">
-                    <img src="./img/icon_09.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">제초</small>
-                  </a>
-                </td>
-                <td>
-                  <a data-toggle="page" data-start="#page-main" href="#page2" class="text-muted text-xs-center" data-title="생활서비스">
-                    <img src="./img/icon_10.png" alt="" style="width: 1.8rem">
-                    <small class="d-block mt-1">생활서비스</small>
-                  </a>
-                </td>
-              </tr>
-            </table>
-
-
-
-          </div>
-
-
-
-
-          <div class="content-padded">
-
-            <img src="./img/banner-01.png" alt="" class="img-fluid"  data-toggle="page" data-start="#page-main" data-target="#page2" data-title="멘터 안전하게 만나기" style="border-radius: .5rem;">
-
-
-
-          </div>
-
-
-          <div class="content-padded">
-
-            <section class="mt-4">
-              <h3 class="h6">인기 상품</h3>
-
-              <div>
-                <span class="badge badge-pill bg-black text-white">감자재배</span>
-                <span class="badge badge-default badge-outline">예초대행</span>
-                <span class="badge badge-default badge-outline">수확대행</span>
-                <span class="badge badge-default badge-outline">관수대행</span>
-                <span class="badge badge-default badge-outline">비닐하우스</span>
-
-              </div>
-
-
-              <section class="mt-3 bg-white">
-                <div class="swiper mySwiper rental-swiperGoods">
-                    <div class="swiper-wrapper goods">
-      
-                      <div class="swiper-slide">
-                        <div class="embed-responsive embed-responsive-550by780 mb-2 maskdark collection" data-toggle="page" data-target="#page-rental-collection" data-start="#page-main" data-title="코스페이시스 AR 증강현실">
-                          <img src="./files/tmp/program-01.png" alt="" class="img-fluid">
-                          <div class="badge-tags">
-                            <small class="badge badge-tag">밭장만</small>
-                            <small class="badge badge-tag">감자</small>
-                          </div>
-                          <div class="txt-box">
-                            <h4>감자재배 마스터키</h4>
-                            <p>1회차에는 밭 로터리 및 배수로 정비와 퇴비 살포가 이뤄지고</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="embed-responsive embed-responsive-550by780 mb-2 maskdark collection" data-toggle="page" data-target="#page-rental-collection" data-start="#page-main" data-title="캐릭터 열쇠고리 만들기">
-                          <img src="./files/tmp/program-02.png" alt="" class="img-fluid">
-                          <div class="badge-tags">
-                            <small class="badge badge-tag">무경운</small>
-                            <small class="badge badge-tag">틀밭</small>
-                          </div>
-                          <div class="txt-box">
-                            <h4>쿠바식 틀밭 설치</h4>
-                            <p>자연농 무경운 유기물멀칭</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="embed-responsive embed-responsive-550by780 mb-2 maskdark collection" data-toggle="page" data-target="#page-rental-collection" data-start="#page-main" data-title="AI 비누(VINU) CAR">
-                          <img src="./files/tmp/program-03.png" alt="" class="img-fluid">
-                          <div class="badge-tags">
-                            <small class="badge badge-tag">메주</small>
-                            <small class="badge badge-tag">된장</small>
-                          </div>
-                          <div class="txt-box">
-                            <h4>다시마 된장 담그기</h4>
-                            <p>여름에 시지않게 장 담는 비법</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="embed-responsive embed-responsive-550by780 mb-2 maskdark collection" data-toggle="page" data-target="#page-rental-collection" data-start="#page-main" data-title="알티노 자율주행 자동차기">
-                          <img src="./files/tmp/program-04.jpg" alt="" class="img-fluid">
-                          <div class="badge-tags">
-                            <small class="badge badge-tag">온실</small>
-                            <small class="badge badge-tag">재활용</small>
-                          </div>
-                          <div class="txt-box">
-                            <h4>간단한 목조 비닐하우스</h4>
-                            <p>DIY 재활용 목재로 목조 비닐하우스 만들기</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-              </section>
-
-
-
-
-
-
-
-
-
-            </section>
-
-
-          </div>
-
-        </div>
-
-        <div id="tab-chat" class="tab-content">
-
-          <div class="gb-chat">
-            <ul class="table-view border-top-0 border-bottom-0 d-flex flex-column" data-role="room">
-            <li class="table-view-cell border-bottom-0" data-room="-NYRTffpUfrMhsP7NARu">
-                <span class="badge badge-default badge-inverted" style="top: 32%;" data-role="timestamp">4월 29일</span>
-                <span class="badge badge-danger mr-1" style="top: 65%;right: 5%;border-radius: 15rem;" data-role="unread">1</span>
-                <a class="long-press" data-long-press-delay="700" role="button" data-toggle="modal" data-target="#modal-chat-room" data-type="1" data-room="-NYRTffpUfrMhsP7NARu" data-title="김미래">
-                    
-                      <div class="user-img media-object pull-left" style="width: 48px;height: 48px" data-num="1">
-                        <div class="">
-                          <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                            <defs>
-                              <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                              <clipPath id="clipSquircle2">
-                                <use xlink:href="#shapeSquircle2"></use>
-                              </clipPath>el,data
-                            </defs>
-                            <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                            <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">미래</text>
-                            <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-03.png"></image>
-                          </svg>
-                        </div>
-                      </div>
-                  <div class="media-body pr-3">
-                    <div class="d-flex">
-                      <span class="line-clamp-1" data-role="title">김미래</span>
-                      <span class="text-muted ml-2" data-role="num"></span>
-                    </div>
-                    <p class="gb-chat-msg line-clamp-2" data-role="lastMessage">
-                      안녕하세요. 반갑습니다.
+    <main id="top">
+      <section class="relative isolate overflow-hidden bg-paper">
+        <div
+          class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_15%,rgba(209,250,229,0.9),transparent_30%),radial-gradient(circle_at_80%_25%,rgba(214,211,209,0.55),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.9),rgba(236,253,245,0.55),rgba(250,250,249,0.95))]"
+        ></div>
+        <div
+          class="absolute left-0 top-24 -z-10 h-64 w-64 rounded-full bg-emerald-900/5 blur-3xl"
+        ></div>
+        <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-28">
+          <div>
+            <p class="mb-5 text-sm font-semibold uppercase tracking-[0.28em] text-moss">
+              find your green
+            </p>
+            <h1 class="max-w-3xl text-5xl font-semibold leading-[1.05] text-leaf sm:text-6xl lg:text-7xl">
+              supsok
+            </h1>
+            <p class="mt-6 max-w-2xl text-3xl font-semibold leading-tight text-stone-900 sm:text-4xl">
+              AI 시대, 내 삶을 살아 있게 하는 초록을 찾다.
+            </p>
+            <div class="mt-7 max-w-2xl space-y-4 text-lg leading-8 text-stone-700">
+              <p>
+                숲속생활자는 경북 봉화의 숲과 농촌에서 시작된 로컬테크 브랜드입니다.
               </p>
-                  </div>
-                </a>
-              </li>
-      
-              <li class="table-view-cell border-bottom-0" data-room="-NZDpZhxut_ejaXcc2P7">
-                <span class="badge badge-default badge-inverted" style="top: 32%;" data-role="timestamp">5월 11일</span>
-                <span class="badge badge-danger mr-1" style="top: 65%;right: 5%;border-radius: 15rem;" data-role="unread"></span>
-                <a class="long-press" data-long-press-delay="700" role="button" data-toggle="modal" data-target="#modal-chat-room" data-type="1" data-room="-NZDpZhxut_ejaXcc2P7" data-title="봉화 주말농장 모임">
-                    
-                      <div class="media-object pull-left grid" style="width: 48px;height: 48px" data-num="3">
-                        <div class="user-img">
-                          <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                            <defs>
-                              <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                              <clipPath id="clipSquircle2">
-                                <use xlink:href="#shapeSquircle2"></use>
-                              </clipPath>
-                            </defs>
-                            <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                            <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">채움</text>
-                            <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-03.png"></image>
-                          </svg>
-                        </div>
-                        <div class="user-img">
-                          <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                            <defs>
-                              <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                              <clipPath id="clipSquircle2">
-                                <use xlink:href="#shapeSquircle2"></use>
-                              </clipPath>
-                            </defs>
-                            <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                            <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle"></text>
-                            <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-02.png"></image>
-                          </svg>
-                        </div>
-                        <div class="user-img">
-                          <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                            <defs>
-                              <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                              <clipPath id="clipSquircle2">
-                                <use xlink:href="#shapeSquircle2"></use>
-                              </clipPath>
-                            </defs>
-                            <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                            <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle"></text>
-                            <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-01.png"></image>
-                          </svg>
-                        </div>
-                      </div>
-                  <div class="media-body pr-3">
-                    <div class="d-flex">
-                      <span class="line-clamp-1" data-role="title">봉화 주말농장 모임</span>
-                      <span class="text-muted ml-2" data-role="num">4</span>
-                    </div>
-                    <p class="gb-chat-msg line-clamp-2" data-role="lastMessage">
-                      비온아침 오늘은 방제하는 날이지만 사과잎이 마르는 동안 하우스를 정리해봅시다
-                </p>
-                  </div>
-                </a>
-              </li>
-              <li class="table-view-cell border-bottom-0" data-room="-NYRTffpUfrMhsP7NARu">
-                <span class="badge badge-default badge-inverted" style="top: 32%;" data-role="timestamp">5월 13일</span>
-                <span class="badge badge-danger mr-1" style="top: 65%;right: 5%;border-radius: 15rem;" data-role="unread"></span>
-                <a class="long-press" data-long-press-delay="700" role="button" data-toggle="modal" data-target="#modal-chat-room" data-type="1" data-room="-NYRTffpUfrMhsP7NARu" data-title="숲생자 AI 컨텍센터">
-                    
-                      <div class="user-img media-object pull-left" style="width: 48px;height: 48px" data-num="1">
-                        <div class="">
-                          <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                            <defs>
-                              <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                              <clipPath id="clipSquircle2">
-                                <use xlink:href="#shapeSquircle2"></use>
-                              </clipPath>el,data
-                            </defs>
-                            <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                            <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">채움</text>
-                            <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-01.png"></image>
-                          </svg>
-                        </div>
-                      </div>
-                  <div class="media-body pr-3">
-                    <div class="d-flex">
-                      <span class="line-clamp-1" data-role="title">숲생자 AI 컨텍센터</span>
-                      <span class="text-muted ml-2" data-role="num"></span>
-                    </div>
-                    <p class="gb-chat-msg line-clamp-2" data-role="lastMessage">네. 작업 진행하시다 필요한 부분이 있으시면 전화주세요.
+              <p>
+                AI와 지역 생활 데이터를 활용해 농촌 고령자의 장보기, 생활지원,
+                안부확인을 돕는 서비스를 준비하고 있습니다.
               </p>
-                  </div>
-                </a>
-              </li>
-              </li>
-
-            </ul>
+            </div>
+            <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#masilcall"
+                class="inline-flex items-center justify-center rounded-full bg-leaf px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-950/10 transition hover:bg-emerald-900 focus:outline-none focus:ring-4 focus:ring-emerald-700/20"
+              >
+                마실콜 알아보기
+              </a>
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center rounded-full border border-leaf/25 bg-white/80 px-6 py-3 text-base font-semibold text-leaf shadow-sm transition hover:bg-field focus:outline-none focus:ring-4 focus:ring-emerald-700/15"
+              >
+                문의하기
+              </a>
+            </div>
           </div>
 
-        </div>
-
-        <div id="tab-mento" class="tab-content">
-
-          <section class="content-padded goods">
-            <div class="d-flex align-items-center mb-2">
-              <div class="text-muted"><small>총 <span data-role="num">6</span>명</small></div>
-              <div class="ml-auto">
-                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-link text-muted"><i class="bi bi-check-lg"></i> 등록순</button>
-                  <button type="button" class="btn btn-link text-muted">인기순</button>
-                  <button type="button" class="btn btn-link text-muted">별점순</button>
-                </div>
-              </div>
+          <div class="relative mx-auto w-full max-w-md lg:max-w-lg">
+            <div class="rounded-[2rem] border border-emerald-950/10 bg-white/75 p-5 shadow-2xl shadow-emerald-950/10 backdrop-blur">
+              <img
+                src="logo/숲속생활자 로고.jpg"
+                alt="숲속생활자 손글씨 로고"
+                class="aspect-square w-full rounded-[1.5rem] object-cover"
+              />
             </div>
-            <div class="row gutter-half">
-              <div class="col-xs-4 mb-3">
-                <a data-toggle="page" href="#page-mento-view" data-start="#page-main" class="text-muted bg-white" data-title="김석평">
-                  <div class="embed-responsive embed-responsive-1by1 mb-2">
-                    <img src="./img/farmer-01.png" alt="" class="img-fluid">
-                    <small class="badge badge-stock" data-role="stock"><i class="bi bi-star"></i> 5</small>
-                  </div>
-                  <p>김석평</p>
-                </a>
-              </div>
-              <div class="col-xs-4 mb-3">
-                <a data-toggle="page" href="#page-mento-view" data-start="#page-main" class="text-muted" data-title="춘양농장">
-                  <div class="embed-responsive embed-responsive-1by1 mb-2">
-                    <img src="./img/farmer-02.png" alt="" class="img-fluid">
-                    <small class="badge badge-stock" data-role="stock"><i class="bi bi-star"></i> 4.5</small>
-                  </div>
-                  <p>춘양농장</p>
-                </a>
-              </div>
-              <div class="col-xs-4 mb-3">
-                <a data-toggle="page" href="#page-mento-view" data-start="#page-main" class="text-muted" data-title="숲속농부">
-                  <div class="embed-responsive embed-responsive-1by1 mb-2">
-                    <img src="./img/farmer-06.png" alt="" class="img-fluid">
-                    <small class="badge badge-stock" data-role="stock"><i class="bi bi-star"></i> 4.8</small>
-                  </div>
-                  <p>숲속농부</p>
-                </a>
-              </div>
-              <div class="col-xs-4 mb-3">
-                <a data-toggle="page" href="#page-mento-view" data-start="#page-main" class="text-muted" data-title="하율이네">
-                  <div class="embed-responsive embed-responsive-1by1 mb-2">
-                    <img src="./img/farmer-04.png" alt="" class="img-fluid">
-                    <small class="badge badge-stock" data-role="stock"><i class="bi bi-star"></i> 3.8</small>
-                  </div>
-                  <p>하율이네</p>
-                </a>
-              </div>
-              <div class="col-xs-4 mb-3">
-                <a data-toggle="page" href="#page-mento-view" data-start="#page-main" class="text-muted" data-title="민서농원">
-                  <div class="embed-responsive embed-responsive-1by1 mb-2">
-                    <img src="./img/farmer-05.png" alt="" class="img-fluid">
-                    <small class="badge badge-stock" data-role="stock"><i class="bi bi-star"></i> 5</small>
-                  </div>
-                  <p>민서농원</p>
-                </a>
-              </div>
-              <div class="col-xs-4 mb-3">
-                <a data-toggle="page" href="#page-mento-view" data-start="#page-main" class="text-muted" data-title="이석포">
-                  <div class="embed-responsive embed-responsive-1by1 mb-2">
-                    <img src="./img/farmer-03.png" alt="" class="img-fluid">
-                    <small class="badge badge-stock" data-role="stock"><i class="bi bi-star"></i> 4.4</small>
-                  </div>
-                  <p>이석포</p>
-                </a>
-              </div>
-            </div>
-          </section>
-      
-        </div>
-
-        <div id="tab-comm" class="tab-content">
-
-          
-        </div>
-
-
-        <div id="tab-more" class="tab-content bg-white">
-          <div class="d-flex justify-content-center align-items-center" style="height: 40vh">
-            <div class="text-xs-center">
-              <div class="material-icons mb-3" style="font-size: 90px;color:#ccc">
-                folder
-              </div>
-              <h6>소프트웨어 인재양성을<br>끌어 갈 SW미래채움</h6>
-              <small class="text-muted f12">어린이 코딩교육으로 좋은 경북SW미래채움센터를 가다!</small>
-              <div class="mt-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-login">
-                  로그인
-                </button>
-              </div>
+            <div class="absolute -bottom-5 left-6 right-6 rounded-3xl border border-emerald-950/10 bg-paper/95 p-5 shadow-xl shadow-emerald-950/10">
+              <p class="text-sm font-semibold tracking-[0.2em] text-moss">LOCAL TECH</p>
+              <p class="mt-2 text-lg font-semibold text-stone-900">
+                숲, 농촌, 생활 데이터가 만나는 조용한 실험
+              </p>
             </div>
           </div>
         </div>
+      </section>
 
-
-
-      </div>
-    </div>
-
-    <div id="page2" class="page right">
-      <header class="bar bar-nav bar-light bg-white px-0">
-        <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
-
-        <h1 class="title title-left"  data-history="back" data-role="title">페이지2</h1>
-      </header>
-      <div class="content">
-        <section class="content-padded goods">
-          <div class="d-flex align-items-center mb-2">
-            <div class="text-muted"><small>총 <span data-role="num">5</span>개</small></div>
-            <div class="ml-auto">
-              <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-link text-muted"><i class="bi bi-check-lg"></i> 최신순</button>
-                <button type="button" class="btn btn-link text-muted">인기순</button>
-              </div>
+      <section id="philosophy" class="px-5 py-20 sm:px-8 sm:py-24">
+        <div class="mx-auto max-w-6xl">
+          <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.24em] text-moss">
+                Brand Philosophy
+              </p>
+              <h2 class="mt-4 text-3xl font-semibold leading-tight text-stone-950 sm:text-5xl">
+                우리는 모든 불편함을 없애려 하지 않습니다.
+              </h2>
+            </div>
+            <div class="space-y-5 text-lg leading-8 text-stone-700">
+              <p>
+                숲속생활자는 삶을 무너뜨리는 불편함은 기술로 줄이고, 삶을 깊게
+                만드는 건강한 불편함은 남기려 합니다.
+              </p>
+              <p>
+                고립, 이동의 어려움, 정보 격차, 장보기 문제는 해결해야 할
+                불편함입니다.
+              </p>
+              <p>
+                반면 흙을 만지고, 계절을 살피고, 자기 생활을 직접 돌보는 감각은
+                지켜야 할 가치입니다.
+              </p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-6 mb-3">
-              <a data-toggle="modal" href="#modal-rental-goodsView" class="text-muted bg-white" data-title="할로코드">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <img src="/files/tmp/halocode_300x300.png" alt="" class="img-fluid">
-                  <small class="badge badge-stock" data-role="stock">15</small>
-                </div>
-                <p>할로코드</p>
-              </a>
+          <blockquote class="mt-14 rounded-[2rem] border border-emerald-950/10 bg-white p-8 text-3xl font-semibold leading-tight text-leaf shadow-sm sm:p-10 sm:text-5xl">
+            불편함을 모두 없애는 것이 아니라,<br class="hidden sm:block" />
+            삶을 살아 있게 하는 불편함은 남깁니다.
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="masilcall" class="bg-white px-5 py-20 sm:px-8 sm:py-24">
+        <div class="mx-auto max-w-6xl">
+          <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <img
+                src="logo/마실콜 로고.jpg"
+                alt="마실콜 로고"
+                class="h-28 w-28 rounded-3xl border border-emerald-950/10 object-cover shadow-sm"
+              />
+              <h2 class="mt-7 text-4xl font-semibold text-stone-950 sm:text-6xl">마실콜</h2>
+              <p class="mt-4 text-2xl font-semibold leading-tight text-leaf">
+                전화 한 통으로 이어지는 농촌 생활지원 플랫폼
+              </p>
             </div>
-            <div class="col-xs-6 mb-3">
-              <a data-toggle="modal" href="#modal-rental-goodsView" class="text-muted" data-title="오조봇 EVO">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <img src="/files/tmp/evo_300x300.png" alt="" class="img-fluid">
-                  <small class="badge badge-stock" data-role="stock">8</small>
-                </div>
-                <p>오조봇 EVO</p>
-              </a>
-            </div>
-            <div class="col-xs-6 mb-3">
-              <a data-toggle="modal" href="#modal-rental-goodsView" class="text-muted" data-title="오조봇 EVO">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <img src="/files/tmp/kami_300x300.png" alt="" class="img-fluid">
-                  <small class="badge badge-stock" data-role="stock">8</small>
-                </div>
-                <p>카미봇</p>
-              </a>
-            </div>
-            <div class="col-xs-6 mb-3">
-              <a data-toggle="modal" href="#modal-rental-goodsView" class="text-muted" data-title="오조봇 EVO">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <img src="/files/tmp/3dpen_300x300.png" alt="" class="img-fluid">
-                  <small class="badge badge-stock" data-role="stock">8</small>
-                </div>
-                <p>카카오프렌즈 3D펜</p>
-              </a>
-            </div>
-            <div class="col-xs-6 mb-3">
-              <a data-toggle="modal" href="#modal-rental-goodsView" class="text-muted" data-title="오조봇 EVO">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <img src="/files/tmp/3dpenbook_300x300.png" alt="" class="img-fluid">
-                  <small class="badge badge-stock" data-role="stock">8</small>
-                </div>
-                <p>3D펜 도안북</p>
-              </a>
-            </div>
-            <div class="col-xs-6 mb-3">
-              <a data-toggle="modal" href="#modal-rental-goodsView" class="text-muted" data-title="오조봇 EVO">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <img src="/files/tmp/evo_300x300.png" alt="" class="img-fluid">
-                  <small class="badge badge-stock" data-role="stock">8</small>
-                </div>
-                <p>오조봇 EVO</p>
-              </a>
+            <div class="space-y-5 text-lg leading-8 text-stone-700">
+              <p>
+                마실콜은 농촌 고령자가 복잡한 앱을 사용하지 않아도, 전화 한 통으로
+                장보기, 생활지원, 안부확인에 연결될 수 있도록 준비 중인 서비스입니다.
+              </p>
+              <p>
+                상담자는 지역 생활 데이터를 바탕으로 어르신의 요청을 기록하고,
+                필요한 생활지원을 연결하는 구조를 설계하고 있습니다.
+              </p>
             </div>
           </div>
-        </section>
-      </div>
-    </div>
 
-    <div id="page3" class="page right">
-      <header class="bar bar-nav bar-light bg-white px-0">
-        <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
-
-        <h1 class="title title-left"  data-history="back">페이지3</h1>
-      </header>
-    </div>
-
-    <div id="page-mento-view" class="page right">
-      <header class="bar bar-nav bar-light bg-white px-0">
-        <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
-
-        <h1 class="title title-left" data-history="back">멘토보기</h1>
-      </header>
-      <nav class="bar bar-tab bar-light bg-white">
-        <a class="tab-item border-left" role="button" data-toggle="sheet" data-act="submit" href="#sheet-rental-cart" role="button">
-          대화하기
-          <span class="badge badge-primary" data-role="selNum" style="top: 1rem;left: auto;vertical-align: middle;margin-left: .2rem"></span>
-        </a>
-      </nav>
-      <main role="main" class="content bg-white">
-    
-        <section class="content-padded goods">
-    
-          <div class="media mb-1">
-            <div class="media-left mr-1">
-              <div class="embed-responsive embed-responsive-1by1 mb-2">
-                <img src="./img/farmer-01.png" alt="" class="img-fluid" style="width: 100px">
-              </div>
-            </div>
-            <div class="media-body">
-              <h5 class="media-heading" data-role="title"></h5>
-              <div class="mb-1"><small class="badge badge-tag">영주</small> <small class="badge badge-tag">안동</small></div>
-              <p style="line-height: 1.2;" class="line-clamp-3 mt-2"><small class="text-muted">풍부한 농업 경험과 열정을 바탕으로 건강하고 신선한 농산물을 재배하고 있습니다. 주말마다 자연 속에서의 힐링을 함께하며, 농촌의 매력을 널리 알리고자 합니다.</small></p>
-            </div>
+          <div class="mt-12 grid gap-5 md:grid-cols-3">
+            <article class="rounded-3xl border border-emerald-950/10 bg-paper p-7 shadow-sm">
+              <p class="text-sm font-semibold tracking-[0.18em] text-moss">01</p>
+              <h3 class="mt-4 text-2xl font-semibold text-stone-950">장보기 지원</h3>
+              <p class="mt-4 leading-7 text-stone-700">
+                가까운 지역 상점과 생활 물품 요청을 연결하는 방식을 준비합니다.
+              </p>
+            </article>
+            <article class="rounded-3xl border border-emerald-950/10 bg-paper p-7 shadow-sm">
+              <p class="text-sm font-semibold tracking-[0.18em] text-moss">02</p>
+              <h3 class="mt-4 text-2xl font-semibold text-stone-950">생활지원 연결</h3>
+              <p class="mt-4 leading-7 text-stone-700">
+                어르신의 일상 요청을 전화 상담 기반으로 접수하고 기록합니다.
+              </p>
+            </article>
+            <article class="rounded-3xl border border-emerald-950/10 bg-paper p-7 shadow-sm">
+              <p class="text-sm font-semibold tracking-[0.18em] text-moss">03</p>
+              <h3 class="mt-4 text-2xl font-semibold text-stone-950">안부확인</h3>
+              <p class="mt-4 leading-7 text-stone-700">
+                반복 요청, 이상 징후, 보호자 확인이 필요한 상황을 놓치지 않는
+                구조를 지향합니다.
+              </p>
+            </article>
           </div>
-    
-          <div class="d-flex align-items-center mb-2">
-            <div class="text-muted"><small>총 <span data-role="num">5</span>개</small></div>
-            <div class="ml-auto">
-              <span class="badge" data-act="allSelect">모두선택</span>
-    
-            </div>
-          </div>
-          <div class="row">
-    
-            <div class="col-xs-6 col-sm-4 mb-3">
-              <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"></span>
-              </label>
-              <div class="text-muted">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <a data-toggle="modal" href="#modal-rental-goodsView" class="stretched-link" data-title="오조봇 EVO">
-                    <img src="/files/tmp/3dpen_300x300.png" alt="" class="img-fluid">
-                  </a>
-                  <small class="badge badge-stock" data-role="stock">8</small>
-                </div>
-                <p>카카오프렌즈 3D펜 PCL 저온형</p>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-4 mb-3">
-              <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"></span>
-              </label>
-              <div class="text-muted">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <a data-toggle="modal" href="#modal-rental-goodsView" class="stretched-link" data-title="오조봇 EVO">
-                    <img src="/files/tmp/3dpenbook_300x300.png" alt="" class="img-fluid">
-                  </a>
-                  <small class="badge badge-stock" data-role="stock">8</small>
-                </div>
-                <p>3D펜 도안북</p>
-              </div>
-            </div>
-    
-    
-            <div class="col-xs-6 col-sm-4 mb-3">
-              <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"></span>
-              </label>
-              <div class="text-muted">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <a data-toggle="modal" href="#modal-rental-goodsView" class="stretched-link" data-title="오조봇 EVO">
-                    <img src="/files/tmp/filament_300x300.png" alt="" class="img-fluid">
-                  </a>
-                  <small class="badge badge-stock" data-role="stock">8</small>
-                </div>
-                <p>3D필라멘트 3D펜 저온 PCL 1KG 1.75mm 오렌지</p>
-              </div>
-            </div>
-    
-            <div class="col-xs-6 col-sm-4 mb-3">
-              <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description"></span>
-              </label>
-              <div class="text-muted">
-                <div class="embed-responsive embed-responsive-1by1 mb-2">
-                  <a data-toggle="modal" href="#modal-rental-goodsView" class="stretched-link" data-title="오조봇 EVO">
-                    <img src="/files/tmp/multitab_300x300.png" alt="" class="img-fluid">
-                  </a>
-                  <small class="badge badge-stock" data-role="stock">8</small>
-                </div>
-                <p>멀티탭 개별스위치 4구</p>
-              </div>
-            </div>
-          </div>
-        </section>
-    
-    
-    
-      </main>
-    </div>
+        </div>
+      </section>
 
-
-      <!-- modal 시작 -->
-      <div id="modal-start" class="modal">
-        <nav class="bar bar-tab bar-light">
-          <a class="tab-item text-white" role="button" data-history="back">
-            닫기
-          </a>
-
-        </nav>
-        <div class="content bg-primary-dark">
-          <p class="content-padded text-xs-center p-t-3">
-            <br><br><br>
-            <img src="./img/logo_trans.png" alt="" class="img-fluid mx-auto" style="width: 55%">
-
-            <h3 class="text-xs-center">숲속생활자</h3>
+      <section class="px-5 py-20 sm:px-8 sm:py-24">
+        <div class="mx-auto max-w-4xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-moss">
+            Why Phone
           </p>
+          <h2 class="mt-4 text-3xl font-semibold leading-tight text-stone-950 sm:text-5xl">
+            왜 전화에서 시작하나요?
+          </h2>
+          <div class="mt-8 space-y-5 text-lg leading-8 text-stone-700">
+            <p>
+              농촌 고령자에게 가장 좋은 기술은 가장 최신의 기술이 아니라, 가장
+              익숙하게 사용할 수 있는 기술입니다.
+            </p>
+            <p>
+              앱 설치, 회원가입, 작은 글씨, 복잡한 결제는 또 다른 장벽이 될 수
+              있습니다.
+            </p>
+            <p>
+              그래서 마실콜은 어르신에게 가장 익숙한 방식인 전화에서 출발합니다.
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
 
-
-      <div id="modal-chat-room" class="modal gb-chat zoom">
-        <header class="bar bar-nav bar-light px-0 border-bottom-0 default-bg" data-color="10">
-          <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
-          <a class="icon material-icons pull-right pr-3 pl-2" role="button" data-toggle="sheet" data-target="#sheet-chat-drawer">menu</a>
-          <a class="icon material-icons pull-right px-2" role="button" data-toggle="modal">search</a>
-          <h1 class="title title-left" data-history="back"><span data-role="title" class="line-clamp-1"></span></h1>
-        </header>
-      
-        <div class="bar bar-standard bar-footer bar-light bg-white px-0 d-flex align-items-stretch align-items-end">
-          <a class="icon bi bi-plus-lg pull-left px-2 text-muted d-flex align-items-end"
-           data-toggle="plus"
-            ></a>
-      
-          <a class="icon material-icons pull-right px-2 text-muted d-none" role="button">sentiment_satisfied</a>
-          <div class="edit"><textarea class="border-0 mt-1 p-2" rows="1" style="outline:none;"  id="modal-chat-room-textarea"></textarea></div>
-          <a class="icon material-icons ml-auto px-2 disabled d-flex align-items-end"
-            role="button"
-            data-act="send"
-            style="font-size: 1.2rem;line-height: 1.4"><span class="align-self-end">send</span></a>
-        </div>
-      
-        <div class="content default-bg" data-color="10">
-          <ul class="media-list content-padded pr-1"  style="overflow:hidden">
-            <li class="me clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href=""></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>나</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      고맙습니다.
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">오후 4:02</span>
-                    </p>
-                  </div>
-          
-                </div>
-          
-              </div>
-            </li>
-            <li class="others clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-01.png"></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>AI 상담원 아라</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      안녕하세요.
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">3분전</span>
-                    </p>
-                  </div>
-          
-                </div>
-          
-              </div>
-            </li>
-            <li class="divider d-flex align-items-center my-3">
-              <p class="text-center mx-3 mb-0 text-muted">
-                <span class="badge badge-pill text-white" role="button"><i class="bi bi-calendar3 mr-2"></i>2024년 5월 13일 월요일</span>
+      <section class="bg-emerald-950 px-5 py-20 text-white sm:px-8 sm:py-24">
+        <div class="mx-auto max-w-6xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-200">
+            Core Values
+          </p>
+          <h2 class="mt-4 text-3xl font-semibold sm:text-5xl">핵심 가치</h2>
+          <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="rounded-3xl border border-white/10 bg-white/8 p-6 shadow-sm">
+              <h3 class="text-xl font-semibold">사람 곁의 기술</h3>
+              <p class="mt-4 leading-7 text-emerald-50/80">
+                기술은 사람을 앞질러 가는 것이 아니라, 사람 곁에서 조용히 생활을
+                도와야 합니다.
               </p>
-            </li>
-            <li class="others clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-01.png"></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>AI 상담원 아라</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      네 고객님 반갑습니다.
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">3분전</span>
-                    </p>
-                  </div>
-
-                  <div data-key="1">
-                    <p>어떻게 도와 드리면 될까요?
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">방금</span>
-                    </p>
-                  </div>
-          
-                </div>
-          
-              </div>
-            </li>
-            <li class="me clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href=""></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>나</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      감자를 심으려고 하는데 밭을 준비하지 못했어요.  로타리도 쳐야 하고 두둑도 만들어야 하는데 어떻하죠?
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">오후 4:02</span>
-                    </p>
-                  </div>
-          
-                </div>
-          
-              </div>
-            </li>
-            <li class="others clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-01.png"></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>AI 상담원 아라</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      네.  감자밭 장만을 위해 '감자 마스터 키트  상품이 있는데요. 감자밭을 준비하는 데 필요한 모든 단계를 포괄하며, 고객이 필요한 모든 서비스를 한 번에 제공받을 수 있는 상품 입니다.
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">3분전</span>
-                    </p>
-                  </div>
-                </div>
-          
-              </div>
-            </li>
-            <li class="me clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href=""></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>나</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      네 괜찮네요. 금액하고 설명좀 해주세요.
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">오후 4:02</span>
-                    </p>
-                  </div>
-          
-                </div>
-          
-              </div>
-            </li>
-            <li class="others clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-01.png"></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>AI 상담원 아라</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      감자 마스터 키트 All-in-One 밭 준비 패키지는  일주일 간격으로 총2회 진행됩니다.
-                      1회차에는 밭 로터리 및 배수로 정비와 퇴비 살포가 이뤄지고 2회차에서 감자 전용비료 살포와 두둑성형 그리고 비닐피복 작업이 진행됩니다.  
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">3분전</span>
-                    </p>
-                  </div>
-
-                  <div data-key="1">
-                  
-
-
-                      <div class="card mx-0 mb-4 rounded">
-                        <img class="card-img-top img-fluid" src="./img/pic-01.png" alt="Card image cap">
-                        <div class="card-block p-2">
-                          <div class="card-text">감자재배 마스터키</div>
-                          <div><small class="text-muted">1회차에는 밭 로터리 및 배수로 ..</small></div>
-                          <small class="text-muted">supsokman.com</small>
-                        </div>
-                      </div>
-
-
-
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">방금</span>
-                   
-                  </div>
-                </div>
-          
-              </div>
-            </li>
-            <li class="me clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href=""></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>나</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      네 좋아요. 금액은 어떻게 되나요?
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">오후 4:02</span>
-                    </p>
-                  </div>
-          
-                </div>
-          
-              </div>
-            </li>
-            <li class="others clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-01.png"></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>AI 상담원 아라</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      네. 고객님, 감자심으실 텃밭 평수를 말씀해 주세요..
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">3분전</span>
-                    </p>
-                  </div>
-          
-                </div>
-          
-              </div>
-            </li>
-            <li class="me clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href=""></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>나</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      50평 정도 될것 같아요.
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">오후 4:02</span>
-                    </p>
-                  </div>
-          
-                </div>
-          
-              </div>
-            </li>
-            <li class="others clearfix"  data-role="msg-row" data-row-minute="{{currentDay}}{{currentMin}}" data-row-mbruid="{{currentMbr}}">
-              <div class="media left">
-              <a class="media-left media-top pt-1" style="z-index: 1;" data-toggle="sheet"
-              data-target="#sheet-member-profile" data-name="{{name}}" data-fullName="{{fullName}}" data-uid="{{mbruid}}" data-avatar="{{authorPic}}">
-                <div class="user-img media-object pull-left" style="width: 36px;height: 36px">
-                  <svg class="svg-profile" viewBox="0 0 88 88" preserveAspectRatio="xMidYMid meet">
-                    <defs>
-                      <path id="shapeSquircle2" d="M44,0 C76.0948147,0 88,11.9051853 88,44 C88,76.0948147 76.0948147,88 44,88 C11.9051853,88 0,76.0948147 0,44 C0,11.9051853 11.9051853,0 44,0 Z"></path>
-                      <clipPath id="clipSquircle2">
-                        <use xlink:href="#shapeSquircle2"></use>
-                      </clipPath>
-                    </defs>
-                    <rect class="default-bg" data-color="10" clip-path="url(#clipSquircle2)" x="0" y="0" width="88" height="88"></rect>
-                    <text class="default-txt" x="50%" y="50%" dy="10" text-anchor="middle">벽돌</text>
-                    <image class="user-photo" width="88" height="88" clip-path="url(#clipSquircle2)" xlink:href="./files/tmp/avatar-01.png"></image>
-                  </svg>
-                </div>
-                </a>
-                <div class="media-body" role="button">
-                  <small>AI 상담원 아라</small>
-                  <div data-key="{{key}}">
-                    <p>
-                      네. 2회차 모든 단계를 포함하시면 25만원 입니다.  견적내용은 아래를 참고해주세요.
-                      <span class="text-muted align-self-end mb-2 ml-2 unread" data-role="unread">1</span>
-                      <span class="text-muted align-self-end mb-2 ml-2 date">3분전</span>
-                    </p>
-                  </div>
-          
-                </div>
-          
-              </div>
-            </li>
-          </ul>
+            </article>
+            <article class="rounded-3xl border border-white/10 bg-white/8 p-6 shadow-sm">
+              <h3 class="text-xl font-semibold">익숙한 접근성</h3>
+              <p class="mt-4 leading-7 text-emerald-50/80">
+                농촌 고령자에게 익숙한 전화 기반 접근 방식을 중심에 둡니다.
+              </p>
+            </article>
+            <article class="rounded-3xl border border-white/10 bg-white/8 p-6 shadow-sm">
+              <h3 class="text-xl font-semibold">지역 기반 연결</h3>
+              <p class="mt-4 leading-7 text-emerald-50/80">
+                지역 상점, 마을, 보호자, 상담자, 생활지원 인력이 연결되는 구조를
+                지향합니다.
+              </p>
+            </article>
+            <article class="rounded-3xl border border-white/10 bg-white/8 p-6 shadow-sm">
+              <h3 class="text-xl font-semibold">생활의 오너십</h3>
+              <p class="mt-4 leading-7 text-emerald-50/80">
+                AI와 데이터는 삶을 대신 살아주는 도구가 아니라, 사람이 자기 삶을
+                더 잘 돌볼 수 있게 돕는 도구입니다.
+              </p>
+            </article>
+          </div>
         </div>
+      </section>
+
+      <section class="px-5 py-20 sm:px-8 sm:py-24">
+        <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div class="rounded-[2rem] border border-emerald-950/10 bg-white p-5 shadow-sm">
+            <div class="rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(236,253,245,1),rgba(250,250,249,1),rgba(214,211,209,0.45))] p-8">
+              <p class="text-sm font-semibold uppercase tracking-[0.24em] text-moss">
+                About
+              </p>
+              <p class="mt-8 text-5xl font-semibold leading-none text-leaf">supsok</p>
+              <p class="mt-3 text-lg font-medium text-stone-600">find your green</p>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-3xl font-semibold leading-tight text-stone-950 sm:text-5xl">
+              숲속생활자에 대하여
+            </h2>
+            <div class="mt-8 space-y-5 text-lg leading-8 text-stone-700">
+              <p>
+                숲속생활자는 경북 봉화의 숲과 농촌에서 실제로 살아가며 시작된
+                브랜드입니다.
+              </p>
+              <p>
+                자연의 감각과 AI, 소프트웨어 기술을 연결해 농촌 고령자 생활지원,
+                스마트농업, 농산물 유통 플랫폼을 실험하고 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-field px-5 py-20 sm:px-8 sm:py-24">
+        <div class="mx-auto max-w-4xl text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-moss">
+            Contact
+          </p>
+          <h2 class="mt-4 text-3xl font-semibold leading-tight text-stone-950 sm:text-5xl">
+            함께 이야기하고 싶습니다.
+          </h2>
+          <div class="mx-auto mt-7 max-w-2xl space-y-4 text-lg leading-8 text-stone-700">
+            <p>
+              마실콜은 농촌 고령자의 생활문제를 지역 안에서 풀어가기 위해 준비
+              중입니다.
+            </p>
+            <p>
+              지자체, 마을 조직, 지역 상점, 생활지원 기관과의 협력을 기다립니다.
+            </p>
+          </div>
+          <a
+            href="mailto:supsokman@gmail.com"
+            class="mt-10 inline-flex items-center justify-center rounded-full bg-leaf px-7 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-950/10 transition hover:bg-emerald-900 focus:outline-none focus:ring-4 focus:ring-emerald-700/20"
+          >
+            문의하기
+          </a>
+          <p class="mt-5 text-sm font-medium text-stone-600">supsokman@gmail.com</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-paper px-5 py-8 sm:px-8">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 border-t border-emerald-950/10 pt-8 text-sm text-stone-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© supsok / 숲속생활자</p>
+        <p>find your green</p>
       </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="./js/rc.min.js"></script>
-    <script src="./js/main.js"></script>
-
+    </footer>
   </body>
 </html>
